@@ -21,6 +21,8 @@ class UserInterface:
         sleep(_delay)
     
     def title(self, txt: str, _buffer: int = None, _doClr: bool = True) -> None:
+        if _doClr is True:
+            self.clr()
         top: str = '___'
         bottom: str = '|__'
         for i, char in enumerate(list(txt)):
@@ -63,6 +65,8 @@ class UserInterface:
         while True:
             if _titleTxt is not None:
                 self.title(_titleTxt, _buffer, _doClr)
+            elif _doClr is True and _titleTxt is None:
+                self.clr()
             print(f'{data}\n')
             try:
                 x = input(_inputIcon)
