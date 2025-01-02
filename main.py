@@ -78,12 +78,13 @@ def _test_game_loop(sabacc: Sabacc, _simulate: bool = False) -> Player or str:
                 if _simulate is False: # If the game is not being simulated
                     if player.is_ai is False:
                         if player.find_new_name is True:
-                            player.name = ui.userInput('Name Yourself!', _doClr=False)
+                            player.name = ui.userInput('Name Yourself!')
                             player.find_new_name = False
                         while True: # Mistake Loop
                             ui.clr()
                             print(f'|   PLAYER: {player.name}\n|   Tokens: {player.tokens - player.round_bet}/{sabacc.tokens}\n|   Turn {turn + 1}/3\n|')
-                            print(f'|   DISCARD   |   SAND   |   BLOOD   |   DISCARD')
+                            print(f'|           SAND                  BLOOD')
+                            print(f'|   DISCARD   |   DRAW   |   DRAW   |   DISCARD')
                             print(f'|      {sabacc.discard_pile['sand'][0]}      |    X     |    X      |      {sabacc.discard_pile['blood'][0]}')
                             print(f'|\n|      HAND   \n|   {player.hand['sand']}   |   {player.hand['blood']}\n   SAND    BLOOD\n')
                             choice = ui.selection(opts, _doTitle=False, _doClr=False) # Get user input as choice
