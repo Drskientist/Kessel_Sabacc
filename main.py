@@ -77,6 +77,9 @@ def _test_game_loop(sabacc: Sabacc, _simulate: bool = False) -> Player or str:
                     opts.insert(1, 'Draw')
                 if _simulate is False: # If the game is not being simulated
                     if player.is_ai is False:
+                        if player.find_new_name is True:
+                            player.name = ui.userInput('Name Yourself!', _doClr=False)
+                            player.find_new_name = False
                         while True: # Mistake Loop
                             ui.clr()
                             print(f'|   PLAYER: {player.name}\n|   Tokens: {player.tokens - player.round_bet}/{sabacc.tokens}\n|   Turn {turn + 1}/3\n|')

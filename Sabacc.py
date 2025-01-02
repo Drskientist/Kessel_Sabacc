@@ -32,6 +32,7 @@ class Player:
         self.hand_rating: int = 4
         self.is_ai = _is_ai
         self.do_talk = _do_talk
+        self.find_new_name = not _is_ai
 
     def _get_hand_rating(self) -> None:
         if 0 in self.hand.values():
